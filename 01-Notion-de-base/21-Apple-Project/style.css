@@ -1,0 +1,226 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+section.global {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 120px 100px 100px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #e8e8e8;
+  transition: background 0.5s ease-in-out;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo img {
+  max-width: 80px;
+}
+
+header ul {
+  position: relative;
+  display: flex;
+  list-style: none;
+}
+
+header ul li a {
+  text-decoration: none;
+  color: rgb(108, 108, 108);
+  font-weight: bold;
+  margin-left: 2rem;
+}
+
+.content {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content .box {
+  position: relative;
+  max-width: 600px;
+}
+
+.content h2 {
+  color: rgb(108, 108, 108);
+  font-size: calc(18px + 1.8vw + 2px);
+  line-height: 1.2;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.content h2 span {
+  font-size: 1em;
+  color: rgb(53, 53, 53);
+}
+
+.content .box p {
+  color: #333;
+  margin: 1.5rem 0;
+}
+
+.content .box a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 25px;
+  background: #333;
+  color: #f1f1f1;
+  border-radius: 40px;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 0.5s ease-in-out;
+}
+
+.content .box a:hover {
+  background: #000;
+}
+
+.box-img {
+  width: 500px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.box-img img.phone {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+}
+
+h3 {
+  font-weight: 400;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 120px;
+  font-style: italic;
+  color: rgb(108, 108, 108);
+}
+
+.cont-imgs {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 30px;
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.cont-imgs li {
+  cursor: pointer;
+  transition: transform 0.5s ease-in-out;
+}
+
+.cont-imgs li:hover {
+  transform: translateY(-10px);
+}
+
+.cont-imgs img {
+  width: 70px;
+  height: auto;
+}
+
+/* --- VERSION PETIT ÉCRAN (< 1024px) --- */
+@media screen and (max-width: 1024px) {
+  section.global {
+    min-height: 100vh;
+    padding: 30px 20px;
+    flex-direction: column; /* Empile tous les éléments de la section */
+    justify-content: flex-start;
+  }
+
+  header {
+    position: relative;
+    padding: 10px 0;
+    margin-bottom: 10px;
+    justify-content: center;
+    order: 1; /* Le logo en tout premier en haut */
+  }
+
+  header ul {
+    display: none; /* Cache le menu */
+  }
+
+  /* Fait remonter "Choisissez votre modèle" juste après le header */
+  h3 {
+    position: relative;
+    left: auto;
+    transform: none;
+    bottom: auto;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    order: 2;
+  }
+
+  /* Fait remonter les miniatures juste après le texte h3 */
+  .cont-imgs {
+    position: relative;
+    left: auto;
+    transform: none;
+    bottom: auto;
+    justify-content: center;
+    margin-bottom: 20px;
+    order: 3;
+    gap: 20px;
+  }
+
+  .cont-imgs img {
+    width: 50px; /* Réduit un peu la taille des miniatures sur mobile */
+  }
+
+  /* Le bloc content (téléphone + texte + bouton) passe en dessous */
+  .content {
+    flex-direction: column;
+    text-align: center;
+    order: 4;
+  }
+
+  /* Place l'image du téléphone au milieu (avant le texte) */
+  .box-img {
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 20px;
+    order: 1;
+  }
+
+  .box-img img.phone {
+    max-width: 240px;
+  }
+
+  /* Le bloc texte et le bouton vont tout en bas */
+  .content .box {
+    max-width: 100%;
+    text-align: center;
+    order: 2;
+  }
+
+  .content h2,
+  .content p {
+    text-align: center;
+  }
+
+  .content .box a {
+    display: inline-block;
+    margin: 1rem auto;
+  }
+}

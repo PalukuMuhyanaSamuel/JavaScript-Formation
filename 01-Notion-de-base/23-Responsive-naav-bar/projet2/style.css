@@ -1,0 +1,73 @@
+/* Style général de la barre de navigation */
+nav {
+  display: flex;
+  justify-content: space-between; /* Pousse les éléments aux extrémités */
+  align-items: center;
+  background-color: #ffffff;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+/* Liste des liens de navigation (par défaut à gauche sur grand écran) */
+.list-nav {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* Conteneur du bouton toggle */
+.btn-toggle-container {
+  display: none; /* Masqué par défaut sur grand écran */
+  cursor: pointer;
+}
+
+.btn-toggle-container img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Éléments de la liste */
+.item-nav a {
+  text-decoration: none;
+  color: #333333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.item-nav a:hover {
+  color: #007bff;
+}
+
+/* --- VERSION RESPONSIVE (écrans de 768px et moins) --- */
+@media screen and (max-width: 768px) {
+  /* Sur mobile, on cache la liste de liens classique par défaut */
+  .list-nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  /* Classe activée en JS pour dérouler le menu */
+  .list-nav.active {
+    display: flex;
+  }
+
+  /* On affiche le bouton toggle. 
+     Grâce au 'space-between' du <nav> et à l'ordre dans le HTML, 
+     le bouton se retrouvera automatiquement tout à droite ! */
+  .btn-toggle-container {
+    display: block;
+    margin-left: auto; /* Force le bloc à aller complètement à droite si besoin */
+  }
+}

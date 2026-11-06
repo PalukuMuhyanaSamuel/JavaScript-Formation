@@ -1,0 +1,3 @@
+npm install -D typescript tsx
+npx tsx mon-fichier.ts      # exécute directement un fichier .ts
+npx tsc --init              # génère un tsconfig.json
